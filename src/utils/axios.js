@@ -9,7 +9,7 @@
  */
 
 import axios from 'axios'
-// import storage from './storage'
+import storage from './storage'
 
 const instance = axios.create({
   baseURL: process.env.VUE_APP_API_BASE,
@@ -22,14 +22,14 @@ const instance = axios.create({
   // }
 })
 
-// instance.interceptors.request.use(config => {
-//   // Add authorization in the header
-//   // TODO: token in store
-//   const token = storage.get('wedn_net_access_token')
-//   if (token && config.headers.Authorization) {
-//     config.headers.Authorization = `Bearer ${token}`
-//   }
-//   return config
-// })
+instance.interceptors.request.use(config => {
+  // Add authorization in the header
+  // TODO: token in store
+  const token = storage.get('wedn_net_access_token')
+  if (token && config.headers.Authorization) {
+    config.headers.Authorization = `Bearer ${token}`
+  }
+  return config
+})
 
 export default instance

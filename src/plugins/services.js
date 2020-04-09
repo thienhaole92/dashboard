@@ -3,7 +3,7 @@ import {
   OptionService,
   PostService,
   TermService,
-  TokenService,
+  AuthService,
   UserService
 } from '../services'
 
@@ -14,7 +14,7 @@ export default Vue => {
     option: OptionService,
     post: PostService,
     term: TermService,
-    token: TokenService,
+    auth: AuthService,
     user: UserService
   }
 

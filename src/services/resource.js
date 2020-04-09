@@ -10,33 +10,28 @@ export default class Resource {
     this.axios = axios
   }
 
-  get (id, options) {
-    let url = `/${this.base}`
-    if (typeof id === 'object') {
-      options = id
-    } else if (id !== undefined) {
-      url += `/${id}`
-    }
+  get (endpoint, options) {
+    const url = endpoint == null ? `/${this.base}` : `/${this.base}/${endpoint}`
     return this.axios.get(url, options)
   }
 
-  post (options) {
-    const url = `/${this.base}`
+  post (endpoint, options) {
+    const url = endpoint == null ? `/${this.base}` : `/${this.base}/${endpoint}`
     return this.axios.post(url, options)
   }
 
-  put (id, options) {
-    const url = `/${this.base}/${id}`
+  put (endpoint, options) {
+    const url = endpoint == null ? `/${this.base}` : `/${this.base}/${endpoint}`
     return this.axios.put(url, options)
   }
 
-  patch (id, options) {
-    const url = `/${this.base}/${id}`
+  patch (endpoint, options) {
+    const url = endpoint == null ? `/${this.base}` : `/${this.base}/${endpoint}`
     return this.axios.patch(url, options)
   }
 
-  delete (id, options) {
-    const url = `/${this.base}/${id}`
+  delete (endpoint, options) {
+    const url = endpoint == null ? `/${this.base}` : `/${this.base}/${endpoint}`
     return this.axios.delete(url, options)
   }
 }

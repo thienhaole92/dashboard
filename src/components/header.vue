@@ -7,7 +7,7 @@
       <menu-list :items="header.menus"/>
       <ul class="list">
         <li class="item">
-          <a href="#" v-if="session.user">Hi, {{ session.user.name }}! <img class="avatar" :src="session.user.meta.avatar" :alt="session.user.name"></a>
+          <a href="#" v-if="session.user">Hi, {{ session.user.first_name +  session.user.last_name}}!</a>
           <ul class="list">
             <li class="item"><router-link :to="{ name: 'profile' }">Profile</router-link></li>
             <li class="item"><router-link :to="{ name: 'profile' }">Edit profile</router-link></li>

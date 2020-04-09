@@ -1,8 +1,8 @@
 <template>
   <div>
-    <app-header/>
+    <app-header />
     <section class="main">
-      <app-sidebar/>
+      <app-sidebar />
       <main class="content">
         <transition name="content">
           <router-view class="inner"></router-view>

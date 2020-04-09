@@ -17,7 +17,7 @@ const state = {
      * 站点名称
      * @type {String}
      */
-    name: 'WEDN.NET',
+    name: 'SWEENOW',
 
     /**
      * 顶部菜单
@@ -73,15 +73,15 @@ const state = {
   },
 
   /**
-   * 侧边导航栏
+   * Side navigation bar
    * @type {Object}
    */
   sidebar: {
     /**
-     * 版权所属
+     * Copyright belongs to
      * @type {String}
      */
-    copyright: 'WEDN.NET',
+    copyright: 'SWEENOW',
 
     /**
      * 是否收起边栏
@@ -93,119 +93,118 @@ const state = {
      * 侧边菜单
      * @type {Array}
      */
-    menus: [
-      {
-        title: 'Actions'
-      },
-      {
-        text: 'Dashboard',
-        icon: 'meter',
-        name: 'dashboard',
-        children: [
-          { text: 'Home', name: 'dashboard' },
-          { text: 'Update', name: 'update' }
-        ]
-      },
-      {
-        divider: true
-      },
-      {
-        text: 'Posts',
-        icon: 'pushpin',
-        name: 'posts',
-        params: { type: 'blog' },
-        children: [
-          { text: 'All posts', name: 'posts', params: { type: 'blog' } },
-          { text: 'New post', name: 'new', params: { type: 'blog' } },
-          { text: 'Categories', name: 'terms', params: { type: 'blog-category' } },
-          { text: 'Tags', name: 'terms', params: { type: 'blog-tag' } }
-        ]
-      },
-      {
-        text: 'Pages',
-        icon: 'newspaper',
-        name: 'posts',
-        params: { type: 'page' },
-        children: [
-          { text: 'All pages', name: 'posts', params: { type: 'page' } },
-          { text: 'New page', name: 'new', params: { type: 'page' } }
-        ]
-      },
-      {
-        text: 'Media',
-        icon: 'images',
-        name: 'media',
-        children: [
-          { text: 'Media library', name: 'media' },
-          { text: 'Upload', name: 'upload' }
-        ]
-      },
-      {
-        divider: true
-      },
-      {
-        text: 'Users',
-        icon: 'users',
-        name: 'users',
-        children: [
-          { text: 'All users', name: 'users' },
-          { text: 'Roles', name: 'roles' },
-          { text: 'Permissions', name: 'permissions' }
-        ]
-      },
-      {
-        text: 'Comments',
-        icon: 'bubbles',
-        name: 'comments'
-      },
-      {
-        divider: true
-      },
-      {
-        text: 'Themes',
-        icon: 'paint-format',
-        name: 'themes',
-        children: [
-          { text: 'Themes', name: 'themes' },
-          { text: 'Customization', name: 'customize' },
-          { text: 'Widgets', name: 'widgets' },
-          { text: 'Navigation', name: 'navigation' }
-        ]
-      },
-      {
-        text: 'Plugins',
-        icon: 'power-cord',
-        name: 'plugins',
-        children: [
-          { text: 'Installed plugins', name: 'plugins' },
-          { text: 'Install plugin', name: 'install', params: { type: 'plugin' } }
-        ]
-      },
-      {
-        text: 'Tools',
-        icon: 'wrench',
-        name: 'tools',
-        children: [
-          { text: 'Available tools', name: 'tools' },
-          { text: 'Import', name: 'import' },
-          { text: 'Export', name: 'export' }
-        ]
-      },
-      {
-        text: 'Settings',
-        icon: 'equalizer',
-        name: 'options',
-        params: { type: 'general' },
-        children: [
-          { text: 'General', name: 'options', params: { type: 'general' } },
-          { divider: true },
-          { text: 'Writing', name: 'options', params: { type: 'writing' } },
-          { text: 'Reading', name: 'options', params: { type: 'reading' } },
-          { text: 'Discussion', name: 'options', params: { type: 'discussion' } },
-          { text: 'Media', name: 'options', params: { type: 'media' } },
-          { text: 'Permalink', name: 'options', params: { type: 'permalink' } }
-        ]
-      }
+    menus: [{
+      title: 'Actions'
+    },
+    {
+      text: 'Dashboard',
+      icon: 'meter',
+      name: 'dashboard',
+      children: [
+        { text: 'Home', name: 'dashboard' },
+        { text: 'Update', name: 'update' }
+      ]
+    },
+    {
+      divider: true
+    },
+    {
+      text: 'Posts',
+      icon: 'pushpin',
+      name: 'posts',
+      params: { type: 'blog' },
+      children: [
+        { text: 'All posts', name: 'posts', params: { type: 'blog' } },
+        { text: 'New post', name: 'new', params: { type: 'blog' } },
+        { text: 'Categories', name: 'terms', params: { type: 'blog-category' } },
+        { text: 'Tags', name: 'terms', params: { type: 'blog-tag' } }
+      ]
+    },
+    {
+      text: 'Pages',
+      icon: 'newspaper',
+      name: 'posts',
+      params: { type: 'page' },
+      children: [
+        { text: 'All pages', name: 'posts', params: { type: 'page' } },
+        { text: 'New page', name: 'new', params: { type: 'page' } }
+      ]
+    },
+    {
+      text: 'Media',
+      icon: 'images',
+      name: 'media',
+      children: [
+        { text: 'Media library', name: 'media' },
+        { text: 'Upload', name: 'upload' }
+      ]
+    },
+    {
+      divider: true
+    },
+    {
+      text: 'Users',
+      icon: 'users',
+      name: 'users',
+      children: [
+        { text: 'All users', name: 'users' },
+        { text: 'Roles', name: 'roles' },
+        { text: 'Permissions', name: 'permissions' }
+      ]
+    },
+    {
+      text: 'Comments',
+      icon: 'bubbles',
+      name: 'comments'
+    },
+    {
+      divider: true
+    },
+    {
+      text: 'Themes',
+      icon: 'paint-format',
+      name: 'themes',
+      children: [
+        { text: 'Themes', name: 'themes' },
+        { text: 'Customization', name: 'customize' },
+        { text: 'Widgets', name: 'widgets' },
+        { text: 'Navigation', name: 'navigation' }
+      ]
+    },
+    {
+      text: 'Plugins',
+      icon: 'power-cord',
+      name: 'plugins',
+      children: [
+        { text: 'Installed plugins', name: 'plugins' },
+        { text: 'Install plugin', name: 'install', params: { type: 'plugin' } }
+      ]
+    },
+    {
+      text: 'Tools',
+      icon: 'wrench',
+      name: 'tools',
+      children: [
+        { text: 'Available tools', name: 'tools' },
+        { text: 'Import', name: 'import' },
+        { text: 'Export', name: 'export' }
+      ]
+    },
+    {
+      text: 'Settings',
+      icon: 'equalizer',
+      name: 'options',
+      params: { type: 'general' },
+      children: [
+        { text: 'General', name: 'options', params: { type: 'general' } },
+        { divider: true },
+        { text: 'Writing', name: 'options', params: { type: 'writing' } },
+        { text: 'Reading', name: 'options', params: { type: 'reading' } },
+        { text: 'Discussion', name: 'options', params: { type: 'discussion' } },
+        { text: 'Media', name: 'options', params: { type: 'media' } },
+        { text: 'Permalink', name: 'options', params: { type: 'permalink' } }
+      ]
+    }
     ]
   },
 

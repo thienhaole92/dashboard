@@ -1,30 +1,33 @@
-import { TokenService, UserService } from '../services'
+import { AuthService } from '../services'
 import { CHANGE_SESSION, TOGGLE_SIDEBAR_COLLAPSE, INCREMENT, DECREMENT } from './mutation-types'
 
 export default {
   /**
-   * 改变页面标题
+   * Change page title
    */
   changeTitle: ({ commit }, title) => {
     commit(CHANGE_SESSION, { title: title })
   },
 
   /**
-   * 创建新的客户端令牌
+   * Create a new client token
    */
-  createToken: ({ commit }, { username, password }) => {
-    return TokenService.post({
-      username: username.trim(),
+  createToken: ({ commit }, { email, password }) => {
+    const params = {
+      email: email.trim(),
       password: password.trim()
-    })
+    }
+
+    return AuthService.post('auth', params)
       .then(res => {
-        commit(CHANGE_SESSION, { token: res.data.token })
-        return res.data.token
+        const data = res.data.data
+        commit(CHANGE_SESSION, { token: data.token })
+        return data.token
       })
   },
 
   /**
-   * 检查客户端令牌是否可用
+   * Check if the client token is available
    */
   checkToken: ({ commit, getters }) => {
     return new Promise((resolve, reject) => {
@@ -33,7 +36,7 @@ export default {
         return resolve(false)
       }
       // remote
-      TokenService.get()
+      AuthService.get()
         .then(res => resolve(true))
         .catch(err => {
           console.error(err)
@@ -44,28 +47,29 @@ export default {
   },
 
   /**
-   * 删除客户端令牌
+   * Delete client token
    */
   deleteToken: ({ commit, getters }) => {
-    return TokenService.delete(getters.session.token)
+    return AuthService.delete(getters.session.token)
       .then(res => {
         commit(CHANGE_SESSION, { token: null })
       })
   },
 
   /**
-   * 获取当前登录用户信息
+   * Get current logged-in user information
    */
   getCurrentUser: ({ commit }) => {
-    return UserService.get('me')
+    return AuthService.get('me')
       .then(res => {
-        commit(CHANGE_SESSION, { user: res.data })
-        return res.data
+        const data = res.data.data
+        commit(CHANGE_SESSION, { user: data })
+        return data
       })
   },
 
   /**
-   * 切换边栏的展开收起
+   * Toggle the expansion of the sidebar
    */
   toggleSidebarCollapse: ({ commit }) => {
     commit(TOGGLE_SIDEBAR_COLLAPSE)
@@ -74,22 +78,22 @@ export default {
   // ==================== DEMO ====================
 
   /**
-   * 增加计数器计数
+   * Increase the counter count
    */
   increment: ({ commit }) => commit(INCREMENT),
 
   /**
-   * 增加计数器计数
+   * Increase the counter count
    */
   incrementAsync: ({ commit }) => setTimeout(() => commit(INCREMENT), 1000),
 
   /**
-   * 减少计数器计数
+   * Decrease counter count
    */
   decrement: ({ commit }) => commit(DECREMENT),
 
   /**
-   * 减少计数器计数
+   * Decrease counter count
    */
   decrementAsync: ({ commit }) => setTimeout(() => commit(DECREMENT), 1000)
 }

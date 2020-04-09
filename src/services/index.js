@@ -7,7 +7,7 @@ import CommentService from './comments'
 import OptionService from './options'
 import PostService from './posts'
 import TermService from './terms'
-import TokenService from './tokens'
+import AuthService from './auths'
 import UserService from './users'
 
 export {
@@ -15,6 +15,6 @@ export {
   OptionService,
   PostService,
   TermService,
-  TokenService,
+  AuthService,
   UserService
 }

@@ -9,9 +9,9 @@
         <li class="item">
           <a href="#" v-if="session.user">Hi, {{ session.user.first_name +  session.user.last_name}}!</a>
           <ul class="list">
-            <li class="item"><router-link :to="{ name: 'profile' }">Profile</router-link></li>
-            <li class="item"><router-link :to="{ name: 'profile' }">Edit profile</router-link></li>
-            <li class="divider"></li>
+            <!-- <li class="item"><router-link :to="{ name: 'profile' }">Profile</router-link></li>
+            <li class="item"><router-link :to="{ name: 'profile' }">Edit profile</router-link></li> -->
+            <!-- <li class="divider"></li> -->
             <li class="item"><a href="#" @click.prevent="logout">Logout</a></li>
           </ul>
         </li>

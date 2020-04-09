@@ -1,7 +1,6 @@
 <template>
   <div>
     <div class="heading">
-      <h1 class="title">{{ posts.length }} {{ posts.length === 1 ? 'merchant' : 'merchants' }}</h1>
       <label class="search icon-before icon-search">
         <input type="text" placeholder="Search" />
       </label>
@@ -12,7 +11,15 @@
     <el-table :data="merchants">
       <el-table-column prop="name" label="Name" show-overflow-tooltip width="200"></el-table-column>
       <el-table-column label="Is Available">
-        <template slot-scope="scope">{{ scope.row.is_available }}</template>
+        <template slot-scope="scope">
+          <el-switch
+            v-model="scope.row.is_available"
+            active-color="#13ce66"
+            inactive-color="#ff4949"
+            :active-value="true"
+            :inactive-value="false"
+          ></el-switch>
+        </template>
       </el-table-column>
       <el-table-column label="Emails">
         <template slot-scope="scope">

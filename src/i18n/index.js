@@ -5,7 +5,7 @@ Vue.use(I18n)
 
 // https://kazupon.github.io/vue-i18n/
 export default new I18n({
-  locale: 'vi',
+  locale: 'en',
   messages: {
     en: require('./locales/en'),
     vi: require('./locales/vi')

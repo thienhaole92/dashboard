@@ -9,6 +9,7 @@ import PostService from './posts'
 import TermService from './terms'
 import AuthService from './auths'
 import UserService from './users'
+import MerchantService from './merchants'
 
 export {
   CommentService,
@@ -16,5 +17,6 @@ export {
   PostService,
   TermService,
   AuthService,
-  UserService
+  UserService,
+  MerchantService
 }

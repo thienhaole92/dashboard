@@ -106,7 +106,7 @@ export default {
         // create token from remote
         this.$store.dispatch('createToken', this.model)
           .then(token => {
-            this.$router.replace({ path: this.$route.query.redirect || '/' })
+            this.$router.replace({ path: 'merchant/all' })
             this.loading = false
           })
           .catch(err => {

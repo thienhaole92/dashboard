@@ -152,6 +152,25 @@ export default [
     path: 'options/:type',
     meta: { requiresAuth: true },
     component: () => import(/* webpackChunkName: 'options' */ '../views/options')
+  },
+  // - Merchants
+  {
+    name: 'merchant',
+    path: 'merchant/:type',
+    meta: { requiresAuth: true },
+    component: () => import(/* webpackChunkName: 'merchants' */ '../views/merchant/listing')
+  },
+  {
+    name: 'merchant/new',
+    path: 'merchant/new/:type',
+    meta: { requiresAuth: true },
+    component: () => import(/* webpackChunkName: 'merchants' */ '../views/merchant/new')
+  },
+  {
+    name: 'merchant/details',
+    path: 'merchant/details/:id',
+    meta: { requiresAuth: true },
+    component: () => import(/* webpackChunkName: 'merchants' */ '../views/merchant/details')
   }
 ]
 

@@ -1,5 +1,6 @@
 import Vue from 'vue'
-import element from 'element-ui'
+import ElementUI from 'element-ui'
+import locale from 'element-ui/lib/locale/lang/en'
 // import { sync } from 'vuex-router-sync'
 
 import App from './app'
@@ -19,7 +20,7 @@ import './assets/styles/main.scss'
  * Use plugins
  */
 
-Vue.use(element)
+Vue.use(ElementUI, { locale })
 Vue.use(plugins)
 // sync(store, router, { moduleName: 'route' })
 

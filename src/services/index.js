@@ -10,6 +10,8 @@ import TermService from './terms'
 import AuthService from './auths'
 import UserService from './users'
 import MerchantService from './merchants'
+import MenuCategoriesServices from './menu-categories'
+import MenuServices from './menus'
 
 export {
   CommentService,
@@ -18,5 +20,7 @@ export {
   TermService,
   AuthService,
   UserService,
-  MerchantService
+  MerchantService,
+  MenuCategoriesServices,
+  MenuServices
 }

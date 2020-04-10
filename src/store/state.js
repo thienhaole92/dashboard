@@ -116,7 +116,9 @@ const state = {
       children: [
         { text: 'All merchants', name: 'merchant', params: { type: 'all' } },
         { text: 'New merchant', name: 'merchant/new' },
-        { text: '', name: 'merchant/details' }
+        { text: '', name: 'merchant/details' },
+        { text: '', name: 'merchant/new/category' },
+        { text: '', name: 'merchant/new/menu' }
       ]
     }
       // {

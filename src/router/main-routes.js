@@ -162,7 +162,7 @@ export default [
   },
   {
     name: 'merchant/new',
-    path: 'merchant/new/:type',
+    path: 'merchant/new',
     meta: { requiresAuth: true },
     component: () => import(/* webpackChunkName: 'merchants' */ '../views/merchant/new')
   },
@@ -171,6 +171,18 @@ export default [
     path: 'merchant/details/:id',
     meta: { requiresAuth: true },
     component: () => import(/* webpackChunkName: 'merchants' */ '../views/merchant/details')
+  },
+  {
+    name: 'merchant/new/category',
+    path: 'merchant/new/category/:id',
+    meta: { requiresAuth: true },
+    component: () => import(/* webpackChunkName: 'merchants' */ '../views/menu-category/new')
+  },
+  {
+    name: 'merchant/new/menu',
+    path: 'merchant/new/menu/:id',
+    meta: { requiresAuth: true },
+    component: () => import(/* webpackChunkName: 'merchants' */ '../views/menu/new')
   }
 ]
 

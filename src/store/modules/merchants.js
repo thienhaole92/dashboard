@@ -2,6 +2,7 @@ import { MerchantService } from '../../services'
 
 const UPDATE_MERCHANTS_LIST = 'UPDATE_MERCHANTS_LIST'
 const SET_MERCHANT_DETAILS = 'SET_MERCHANT_DETAILS'
+const SET_MENU_CATEGORIES = 'SET_MENU_CATEGORIES'
 
 /**
  * Initial state
@@ -9,7 +10,8 @@ const SET_MERCHANT_DETAILS = 'SET_MERCHANT_DETAILS'
 const state = {
   merchants: [],
   total: 0,
-  merchantDetails: null
+  merchantDetails: null,
+  categories: []
 }
 
 /**
@@ -24,6 +26,9 @@ const getters = {
   },
   merchantDetails: (state) => {
     return state.merchantDetails
+  },
+  categories: (state) => {
+    return state.categories
   }
 }
 
@@ -31,14 +36,18 @@ const getters = {
  * Mutations
  */
 const mutations = {
-  UPDATE_MERCHANTS_LIST(state, data) {
+  UPDATE_MERCHANTS_LIST (state, data) {
     state.merchants = []
     state.total = data.total
     state.merchants = state.merchants.concat(data.merchants)
   },
-  SET_MERCHANT_DETAILS(state, data) {
+  SET_MERCHANT_DETAILS (state, data) {
     state.merchantDetails = null
     state.merchantDetails = data
+  },
+  SET_MENU_CATEGORIES (state, categories) {
+    state.categories = []
+    state.categories = categories
   }
 }
 
@@ -64,7 +73,7 @@ const actions = {
     })
   },
   /**
-   * Get merchants detail by id
+   * Get merchant detail by id
    */
   getMerchantDetails: ({ commit }, id) => {
     return MerchantService.get(`${id}`, null).then((res) => {
@@ -72,6 +81,22 @@ const actions = {
       commit(SET_MERCHANT_DETAILS, merchant)
       return merchant
     })
+  },
+  /**
+   * Get all merchant menu categories
+   */
+  getMerchantMenuCategories: ({ commit }, id) => {
+    return MerchantService.get(`${id}/menu_categories`, null).then((res) => {
+      const categories = res.data.data
+      commit(SET_MENU_CATEGORIES, categories)
+      return categories
+    })
+  },
+  /**
+   * Get all merchant menu categories
+   */
+  createNewMerchant: ({ commit }, payload) => {
+    return MerchantService.post(null, payload)
   }
 }
 

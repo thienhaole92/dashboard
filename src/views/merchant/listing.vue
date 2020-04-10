@@ -4,7 +4,7 @@
       <label class="search icon-before icon-search">
         <input type="text" placeholder="Search" />
       </label>
-      <router-link :to="{ name: 'merchant/new', params: { type: $route.params.type } }">
+      <router-link :to="{ name: 'merchant/new' }">
         <el-button type="primary" size="small" icon="el-icon-edit">Add item</el-button>
       </router-link>
     </div>

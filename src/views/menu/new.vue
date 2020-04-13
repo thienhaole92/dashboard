@@ -20,10 +20,10 @@
       <el-form-item label="Vietnamese name" prop="name_vi">
         <el-input v-model="form.name_vi"></el-input>
       </el-form-item>
-      <el-form-item label="English description" prop="description_en">
+      <el-form-item label="English description">
         <el-input v-model="form.description_en"></el-input>
       </el-form-item>
-      <el-form-item label="Vietnamese description" prop="description_vi">
+      <el-form-item label="Vietnamese description">
         <el-input v-model="form.description_vi"></el-input>
       </el-form-item>
       <el-form-item label="Price" prop="price">

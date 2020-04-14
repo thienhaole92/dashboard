@@ -29,7 +29,7 @@
       <el-form-item label="Price" prop="price">
         <el-input v-model.number="form.price"></el-input>
       </el-form-item>
-      <el-form-item label="Image" prop="image">
+      <el-form-item label="Image">
         <el-upload
           class="upload-demo"
           ref="upload"
@@ -152,9 +152,6 @@ export default {
     onUploadedSuccessfully (response, file, fileList) {
       const url = response.data.url
       this.form.image = url
-      this.$refs.form.validate(valid => {
-        if (!valid) return false
-      })
     },
     resetForm (formName) {
       this.$refs[formName].resetFields()

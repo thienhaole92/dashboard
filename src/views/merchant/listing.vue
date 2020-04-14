@@ -34,8 +34,8 @@
       <el-table-column fixed="right" label="Operations">
         <template slot-scope="scope">
           <el-button @click.native.prevent="handleOpen(scope.row._id)" type="text" size="small">Detail</el-button>
-          <el-button @click.native.prevent="handleEdit(scope.row._id)" type="text" size="small">Edit</el-button>
-          <el-button @click.native.prevent="handleRemove(scope.row._id)" type="text" size="small">Remove</el-button>
+          <!-- <el-button @click.native.prevent="handleEdit(scope.row._id)" type="text" size="small">Edit</el-button>
+          <el-button @click.native.prevent="handleRemove(scope.row._id)" type="text" size="small">Remove</el-button> -->
         </template>
       </el-table-column>
     </el-table>
@@ -86,7 +86,6 @@ export default {
       this.getMerchants({ page: this.currentPage, limit: this.pageSize })
     },
     handleSizeChange (value) {
-      console.log(`每页 ${value} 条`)
       this.pageSize = value
       this.initData()
     },

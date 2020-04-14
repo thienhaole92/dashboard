@@ -8,6 +8,19 @@
         <el-form-item label="Is available" prop="is_available">
           <el-switch v-model="form.is_available"></el-switch>
         </el-form-item>
+         <el-form-item label="Missing translation" prop="missing_translation">
+          <el-switch v-model="form.missing_translation"></el-switch>
+        </el-form-item>
+        <el-form-item label="Default languag" prop="default_lang">
+          <el-select v-model="form.default_lang" placeholder="Select language">
+            <el-option
+              v-for="lang in langs"
+              :key="lang"
+              :label="lang"
+              :value="lang"
+            ></el-option>
+          </el-select>
+        </el-form-item>
         <el-form-item label="Name" prop="name">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
@@ -46,37 +59,13 @@
         <el-form-item label="Longitude" prop="longitude">
           <el-input v-model="form.longitude"></el-input>
         </el-form-item>
-        <el-form-item label="English description" prop="description_en">
-          <el-input v-model="form.description_en"></el-input>
+        <el-form-item label="Opening time" prop="opening_time">
+          <el-input v-model="form.opening_time"></el-input>
         </el-form-item>
-        <el-form-item label="Vietnamese description" prop="description_vi">
-          <el-input v-model="form.description_vi"></el-input>
-        </el-form-item>
-        <el-form-item label="Open monday" prop="open_monday">
-          <el-input v-model="form.open_monday"></el-input>
-        </el-form-item>
-        <el-form-item label="Open tuesday" prop="open_tuesday">
-          <el-input v-model="form.open_tuesday"></el-input>
-        </el-form-item>
-        <el-form-item label="Open wednesday" prop="open_wednesday">
-          <el-input v-model="form.open_wednesday"></el-input>
-        </el-form-item>
-        <el-form-item label="Open thursday" prop="open_thursday">
-          <el-input v-model="form.open_thursday"></el-input>
-        </el-form-item>
-        <el-form-item label="Open friday" prop="open_friday">
-          <el-input v-model="form.open_friday"></el-input>
-        </el-form-item>
-        <el-form-item label="Open sturday" prop="open_sturday">
-          <el-input v-model="form.open_sturday"></el-input>
-        </el-form-item>
-        <el-form-item label="Open sunday" prop="open_sunday">
-          <el-input v-model="form.open_sunday"></el-input>
-        </el-form-item>
-        <el-form-item label="English introduction" prop="introduction_en">
+        <el-form-item label="English introduction">
           <el-input type="textarea" v-model="form.introduction_en"></el-input>
         </el-form-item>
-        <el-form-item label="Vietnamese introduction" prop="introduction_vi">
+        <el-form-item label="Vietnamese introduction">
           <el-input type="textarea" v-model="form.introduction_vi"></el-input>
         </el-form-item>
         <el-form-item label="Gallery" prop="gallery">
@@ -143,26 +132,8 @@ export default {
       description_vi: [
         { required: true, message: 'Vietnamese description is required' }
       ],
-      open_monday: [
-        { required: true, message: 'Open monday is required' }
-      ],
-      open_tuesday: [
-        { required: true, message: 'Open tuesday is required' }
-      ],
-      open_wednesday: [
-        { required: true, message: 'Open wednesday is required' }
-      ],
-      open_thursday: [
-        { required: true, message: 'Open thursday is required' }
-      ],
-      open_friday: [
-        { required: true, message: 'Open friday is required' }
-      ],
-      open_sturday: [
-        { required: true, message: 'Open sturday is required' }
-      ],
-      open_sunday: [
-        { required: true, message: 'Open sunday is required' }
+      opening_time: [
+        { required: true, message: 'Opening time is required' }
       ],
       introduction_en: [
         { required: true, message: 'English introduction is required' }
@@ -175,7 +146,7 @@ export default {
       ]
     }
     const form = {
-      is_available: false,
+      is_available: true,
       name: '',
       logo: '',
       email: '',
@@ -183,23 +154,18 @@ export default {
       address: '',
       latitude: '',
       longitude: '',
-      description_en: '',
-      description_vi: '',
-      open_monday: '',
-      open_tuesday: '',
-      open_wednesday: '',
-      open_thursday: '',
-      open_friday: '',
-      open_sturday: '',
-      open_sunday: '',
+      opening_time: '',
       introduction_en: '',
       introduction_vi: '',
       gallery: [],
       emails: [],
       phones: [],
-      type: ''
+      type: '',
+      default_lang: 'en',
+      missing_translation: true
     }
     return {
+      langs: ['en', 'vi'],
       action: action,
       rules: rules,
       form: form

@@ -23,6 +23,18 @@
             :inactive-value="false"
           ></el-switch>
         </el-form-item>
+        <el-form-item label="Missing translation">
+          <el-switch
+            v-model="merchantDetails.missing_translation"
+            active-color="#13ce66"
+            inactive-color="#ff4949"
+            :active-value="true"
+            :inactive-value="false"
+          ></el-switch>
+        </el-form-item>
+        <el-form-item label="Default language">
+          <div class="el-form-item__label">{{ merchantDetails.default_lang }}</div>
+        </el-form-item>
         <el-form-item label="Name">
           <div class="el-form-item__label">{{ merchantDetails.name }}</div>
         </el-form-item>
@@ -35,12 +47,6 @@
         <el-form-item label="Phone">
           <div class="el-form-item__label">{{ merchantDetails.phones }}</div>
         </el-form-item>
-        <el-form-item label="English description">
-          <div class="el-form-item__label">{{ merchantDetails.description_en }}</div>
-        </el-form-item>
-        <el-form-item label="Vietnamese description">
-          <div class="el-form-item__label">{{ merchantDetails.description_vi }}</div>
-        </el-form-item>
         <el-form-item label="Logo">
           <div class="row">
             <div class="col-md-3 col-xs-6">
@@ -49,26 +55,8 @@
           </div>
         </el-form-item>
         <el-form-item label="Opening time">
-          <el-form-item label="Monday">
-            <div class="el-form-item__label">{{ merchantDetails.open_monday }}</div>
-          </el-form-item>
-          <el-form-item label="Tuesday">
-            <div class="el-form-item__label">{{ merchantDetails.open_tuesday }}</div>
-          </el-form-item>
-          <el-form-item label="Wednesday">
-            <div class="el-form-item__label">{{ merchantDetails.open_wednesday }}</div>
-          </el-form-item>
-          <el-form-item label="Thursday">
-            <div class="el-form-item__label">{{ merchantDetails.open_thursday }}</div>
-          </el-form-item>
-          <el-form-item label="Friday">
-            <div class="el-form-item__label">{{ merchantDetails.open_friday }}</div>
-          </el-form-item>
-          <el-form-item label="Saturday">
-            <div class="el-form-item__label">{{ merchantDetails.open_sturday }}</div>
-          </el-form-item>
-          <el-form-item label="Sunday">
-            <div class="el-form-item__label">{{ merchantDetails.open_sunday }}</div>
+          <el-form-item label="Opening time">
+            <div class="el-form-item__label">{{ merchantDetails.opening_time }}</div>
           </el-form-item>
         </el-form-item>
         <el-form-item label="English introduction">

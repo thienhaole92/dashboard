@@ -14,10 +14,10 @@
           ></el-option>
         </el-select>
       </el-form-item>
-      <el-form-item label="English name" prop="name_en">
+      <el-form-item label="English name">
         <el-input v-model="form.name_en"></el-input>
       </el-form-item>
-      <el-form-item label="Vietnamese name" prop="name_vi">
+      <el-form-item label="Vietnamese name">
         <el-input v-model="form.name_vi"></el-input>
       </el-form-item>
       <el-form-item label="English description">

@@ -16,13 +16,12 @@
       ref="create-category-form"
       auto-complete="off"
       :model="form"
-      :rules="rules"
       label-width="200px"
     >
-      <el-form-item label="English name" prop="category_name_en">
+      <el-form-item label="English name">
         <el-input v-model="form.category_name_en"></el-input>
       </el-form-item>
-      <el-form-item label="Vietnamese name" prop="category_name_vi">
+      <el-form-item label="Vietnamese name">
         <el-input v-model="form.category_name_vi"></el-input>
       </el-form-item>
       <el-form-item>

@@ -21,6 +21,12 @@
             ></el-option>
           </el-select>
         </el-form-item>
+        <el-form-item label="Short Code" prop="short_code">
+          <el-input v-model="form.short_code"></el-input>
+        </el-form-item>
+        <el-form-item label="Facebook URL" prop="facebook_url">
+          <el-input v-model="form.facebook_url"></el-input>
+        </el-form-item>
         <el-form-item label="Name" prop="name">
           <el-input v-model="form.name"></el-input>
         </el-form-item>
@@ -105,6 +111,9 @@ export default {
     const action = process.env.VUE_APP_API_BASE + '/uploads/merchant'
     // form validate rules
     const rules = {
+      short_code: [
+        { required: true, message: 'Short code is required' }
+      ],
       name: [
         { required: true, message: 'Name is required' }
       ],
@@ -162,7 +171,9 @@ export default {
       phones: [],
       type: '',
       default_lang: 'en',
-      missing_translation: true
+      missing_translation: true,
+      facebook_url: '',
+      short_code: ''
     }
     return {
       langs: ['en', 'vi'],

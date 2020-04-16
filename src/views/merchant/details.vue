@@ -35,6 +35,12 @@
         <el-form-item label="Default language">
           <div class="el-form-item__label">{{ merchantDetails.default_lang }}</div>
         </el-form-item>
+        <el-form-item label="Short code">
+          <div class="el-form-item__label">{{ merchantDetails.short_code }}</div>
+        </el-form-item>
+        <el-form-item label="Facebook URL">
+          <div class="el-form-item__label">{{ merchantDetails.facebook_url }}</div>
+        </el-form-item>
         <el-form-item label="Name">
           <div class="el-form-item__label">{{ merchantDetails.name }}</div>
         </el-form-item>

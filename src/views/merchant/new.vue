@@ -8,8 +8,11 @@
         <el-form-item label="Is available" prop="is_available">
           <el-switch v-model="form.is_available"></el-switch>
         </el-form-item>
-         <el-form-item label="Missing translation" prop="missing_translation">
+        <el-form-item label="Missing translation" prop="missing_translation">
           <el-switch v-model="form.missing_translation"></el-switch>
+        </el-form-item>
+        <el-form-item label="Has VAT" prop="has_vat">
+          <el-switch v-model="form.has_vat"></el-switch>
         </el-form-item>
         <el-form-item label="Default languag" prop="default_lang">
           <el-select v-model="form.default_lang" placeholder="Select language">
@@ -173,7 +176,8 @@ export default {
       default_lang: 'en',
       missing_translation: true,
       facebook_url: '',
-      short_code: ''
+      short_code: '',
+      has_vat: false
     }
     return {
       langs: ['en', 'vi'],

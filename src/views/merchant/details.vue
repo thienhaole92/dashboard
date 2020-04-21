@@ -95,6 +95,7 @@
                     <el-col :span="22">
                       <div class="menu-item-name">{{ item.name_en }}/{{ item.name_vi }}</div>
                       <div class="menu-item-price">{{ item.price }}</div>
+                      <el-button type="text" @click="onRemoveImage(item._id)">Remove Image</el-button>
                     </el-col>
                   </el-row>
                 </div>
@@ -126,10 +127,37 @@ export default {
   },
   methods: {
     ...mapActions([
-      'getMerchantDetails'
+      'getMerchantDetails',
+      'updateMenu'
     ]),
     initData () {
       this.getMerchantDetails(this.$route.params.id)
+    },
+    onRemoveImage (menuID) {
+      console.log(menuID)
+      const doc = {
+        id: menuID,
+        payload: {
+          image: ''
+        }
+      }
+      this.updateMenu(doc)
+        .then((res) => {
+          this.error = null
+          this.loading = false
+          this.initData()
+        })
+        .catch(err => {
+          console.log(err)
+          console.log(err.response)
+          this.onError(err.response.data.error)
+        })
+    },
+    onError (message) {
+      this.$notify.error({
+        title: 'Error',
+        message: message
+      })
     }
   }
 }

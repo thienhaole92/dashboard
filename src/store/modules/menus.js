@@ -30,6 +30,12 @@ const actions = {
    */
   createMenu: ({ commit }, payload) => {
     return MenuServices.post('', payload)
+  },
+  /**
+   * Create menu category
+   */
+  updateMenu: ({ commit }, { id, payload }) => {
+    return MenuServices.put(id, payload)
   }
 }
 

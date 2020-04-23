@@ -95,7 +95,16 @@
                     <el-col :span="22">
                       <div class="menu-item-name">{{ item.name_en }}/{{ item.name_vi }}</div>
                       <div class="menu-item-price">{{ item.price }}</div>
-                      <el-button type="text" @click="onRemoveImage(item._id)">Remove Image</el-button>
+                      <el-button
+												@click.native.prevent="onRemoveImage(item._id)"
+												type="text"
+												size="small"
+											>Remove Image</el-button>
+                      <el-button
+												@click.native.prevent="onRemoveMenuItem(item._id)"
+												type="text"
+												size="small"
+											>Remove</el-button>
                     </el-col>
                   </el-row>
                 </div>
@@ -128,7 +137,8 @@ export default {
   methods: {
     ...mapActions([
       'getMerchantDetails',
-      'updateMenu'
+      'updateMenu',
+      'deleteMenu'
     ]),
     initData () {
       this.getMerchantDetails(this.$route.params.id)
@@ -158,7 +168,24 @@ export default {
         title: 'Error',
         message: message
       })
-    }
+    },
+    onRemoveMenuItem (menuID) {
+      console.log(menuID)
+      const doc = {
+        id: menuID
+      }
+      this.deleteMenu(doc)
+        .then((res) => {
+          this.error = null
+          this.loading = false
+          this.initData()
+        })
+        .catch(err => {
+          console.log(err)
+          console.log(err.response)
+          this.onError(err.response.data.error)
+        })
+    },
   }
 }
 </script>

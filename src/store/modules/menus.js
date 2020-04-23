@@ -36,6 +36,9 @@ const actions = {
    */
   updateMenu: ({ commit }, { id, payload }) => {
     return MenuServices.put(id, payload)
+  },
+  deleteMenu: ({ commit }, { id }) => {
+    return MenuServices.delete(id, null)
   }
 }
 
